@@ -387,12 +387,12 @@
 <p><strong>适用场景</strong>：大多数单线程场景的默认选择。</p>
 <h3 id="43-linkedhashmap">4.3 LinkedHashMap</h3>
 <p>在 <code>HashMap</code> 基础上增加双向链表，维护插入或访问顺序。</p>
-<p>![LinkedHashMap 结构示意图](图片占位：LinkedHashMap 哈希表+双向链表结构)</p>
+<p><img src="linkedhashmap.png" alt="LinkedHashMap 结构示意图"></p>
 <p><strong>特点</strong>：</p>
 <ul>
 <li>保持插入顺序（默认）或访问顺序（<code>accessOrder=true</code>）</li>
 <li>O(1) 性能，略慢于 <code>HashMap</code></li>
-<li>支持按访问顺序淘汰，适合实现 LRU 缓存</li>
+<li>支持按访问顺序淘汰，适合实现 <code>LRU</code> 缓存</li>
 </ul>
 <p><strong>LRU 缓存实现</strong>：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LRUCache</span><span style="color:#f92672">&lt;</span>K, V<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">extends</span> LinkedHashMap<span style="color:#f92672">&lt;</span>K, V<span style="color:#f92672">&gt;</span> {
