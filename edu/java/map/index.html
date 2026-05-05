@@ -394,21 +394,15 @@
 <li>O(1) 性能，略慢于 <code>HashMap</code></li>
 <li>支持按访问顺序淘汰，适合实现 <code>LRU</code> 缓存</li>
 </ul>
-<p><strong>LRU 缓存实现</strong>：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LRUCache</span><span style="color:#f92672">&lt;</span>K, V<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">extends</span> LinkedHashMap<span style="color:#f92672">&lt;</span>K, V<span style="color:#f92672">&gt;</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> capacity;
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">LRUCache</span>(<span style="color:#66d9ef">int</span> capacity) {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">super</span>(capacity, 0.<span style="color:#a6e22e">75f</span>, <span style="color:#66d9ef">true</span>);  <span style="color:#75715e">// accessOrder = true</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">capacity</span> <span style="color:#f92672">=</span> capacity;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">removeEldestEntry</span>(Map.<span style="color:#a6e22e">Entry</span><span style="color:#f92672">&lt;</span>K, V<span style="color:#f92672">&gt;</span> eldest) {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> size() <span style="color:#f92672">&gt;</span> capacity;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><strong>适用场景</strong>：需要保持插入/访问顺序，如缓存实现。</p>
+<p><strong>为何能实现 LRU？</strong></p>
+<p><code>LinkedHashMap</code> 内部维护双向链表记录访问顺序：</p>
+<ul>
+<li><strong>访问时移动</strong>：<code>get()</code> 或 <code>put()</code> 后，元素移到链表尾部（最近访问）</li>
+<li><strong>插入时淘汰</strong>：<code>removeEldestEntry()</code> 返回 <code>true</code> 时，移除链表头部（最久未访问）</li>
+</ul>
+<pre tabindex="0"><code>访问 B：head → A → B → C → tail  变为  head → A → C → B → tail
+插入 D：head → A → C → B → tail  变为  head → C → B → D → tail（A 被淘汰）
+</code></pre><p><strong>适用场景</strong>：需要保持插入/访问顺序，如缓存实现。</p>
 <h3 id="44-treemap">4.4 TreeMap</h3>
 <p>基于红黑树实现，键按自然顺序或自定义比较器排序。</p>
 <p>![TreeMap 结构示意图](图片占位：TreeMap 红黑树结构)</p>
