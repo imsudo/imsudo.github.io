@@ -219,29 +219,77 @@
 <li><strong>功能更强</strong>：支持通过 <code>setValue()</code> 直接修改值</li>
 </ul>
 <h2 id="三hashmap-实现原理">三、HashMap 实现原理</h2>
-<p><code>HashMap</code> 是最常用的 <code>Map</code> 实现，基于<strong>哈希表</strong>实现，提供 O(1) 的平均查找性能。</p>
-<h3 id="31-数据结构">3.1 数据结构</h3>
-<pre tabindex="0"><code>┌─────────────────────────────────────────────┐
-│  HashMap 内部结构（数组 + 链表/红黑树）       │
-├─────────────────────────────────────────────┤
-│  索引 0:  [Alice → 95]                      │
-│  索引 1:  [Bob → 88] → [Charlie → 92]      │  ← 链表（哈希冲突）
-│  索引 2:  空                                │
-│  索引 3:  [David → 85]                      │
-└─────────────────────────────────────────────┘
-</code></pre><p><strong>存储过程</strong>：</p>
-<ol>
-<li>计算 Key 的哈希值：<code>key.hashCode()</code></li>
-<li>确定数组索引：<code>(n - 1) &amp; hash</code></li>
-<li>存放键值对：处理冲突</li>
-</ol>
-<h3 id="32-哈希冲突解决">3.2 哈希冲突解决</h3>
-<p>当不同 Key 映射到相同索引时，采用<strong>链地址法</strong>解决冲突：</p>
+<p><code>HashMap</code> 是最常用的 <code>Map</code> 实现，基于哈希表实现，提供 O(1) 的平均查找性能。</p>
+<h3 id="31-底层数据结构">3.1 底层数据结构</h3>
+<p><code>HashMap</code> 采用<strong>数组 + 链表 + 红黑树</strong>的组合结构：</p>
 <ul>
-<li>Java 8 前：冲突位置形成链表</li>
-<li>Java 8+：链表长度 ≥ 8 时转换为<strong>红黑树</strong>，查找复杂度从 O(n) 优化到 O(log n)</li>
+<li><strong>数组</strong>：存储键值对的主体结构，通过哈希值定位索引</li>
+<li><strong>链表</strong>：解决哈希冲突，相同索引的元素以链表形式串联</li>
+<li><strong>红黑树</strong>：Java 8 引入，当链表过长时转换，提升查询效率</li>
 </ul>
-<h3 id="33-扩容机制">3.3 扩容机制</h3>
+<p><img src="8-hashmap.webp" alt="HashMap 数据结构示意图"></p>
+<h3 id="32-存储流程">3.2 存储流程</h3>
+<p><code>put(key, value)</code> 的执行过程：</p>
+<ol>
+<li><strong>计算哈希值</strong>：<code>hash = hashCode() ^ (hashCode() &gt;&gt;&gt; 16)</code></li>
+<li><strong>定位数组索引</strong>：<code>index = (n - 1) &amp; hash</code></li>
+<li><strong>处理冲突</strong>：
+<ul>
+<li>若该位置为空 → 直接存放</li>
+<li>若该位置已有元素 → 以链表或红黑树形式处理冲突</li>
+</ul>
+</li>
+</ol>
+<h3 id="33-哈希冲突解决">3.3 哈希冲突解决</h3>
+<p>当不同 <code>Key</code> 映射到相同索引位置时，发生哈希冲突。<code>HashMap</code> 采用<strong>链地址法</strong>解决：</p>
+<p><strong>链表场景</strong>：冲突较少时，元素以链表形式串联</p>
+<p><img src="7-hashmap.webp" alt="HashMap 链表场景"></p>
+<p><strong>红黑树场景</strong>：Java 8 优化，当链表长度 ≥ 8 且数组容量 ≥ 64 时，链表转换为红黑树</p>
+<p><img src="8-hashmap.webp" alt="HashMap 红黑树场景"></p>
+<table>
+  <thead>
+      <tr>
+          <th>结构</th>
+          <th>查找复杂度</th>
+          <th>适用条件</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>链表</td>
+          <td>O(n)</td>
+          <td>链表长度 &lt; 8</td>
+      </tr>
+      <tr>
+          <td>红黑树</td>
+          <td>O(log n)</td>
+          <td>链表长度 ≥ 8 且数组容量 ≥ 64</td>
+      </tr>
+  </tbody>
+</table>
+<p>关键判断逻辑（<code>putVal</code> 方法）：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// 遍历链表，binCount 为链表长度计数</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> binCount <span style="color:#f92672">=</span> 0; ; <span style="color:#f92672">++</span>binCount) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> ((e <span style="color:#f92672">=</span> p.<span style="color:#a6e22e">next</span>) <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span>) {
+</span></span><span style="display:flex;"><span>        p.<span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> newNode(hash, key, value, <span style="color:#66d9ef">null</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 链表长度 &gt;= 8 时，尝试树化</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (binCount <span style="color:#f92672">&gt;=</span> TREEIFY_THRESHOLD <span style="color:#f92672">-</span> 1)
+</span></span><span style="display:flex;"><span>            treeifyBin(tab, hash);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// ...</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><code>treeifyBin</code> 方法中的容量检查：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">final</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">treeifyBin</span>(Node<span style="color:#f92672">&lt;</span>K,V<span style="color:#f92672">&gt;[]</span> tab, <span style="color:#66d9ef">int</span> hash) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> n, index; Node<span style="color:#f92672">&lt;</span>K,V<span style="color:#f92672">&gt;</span> e;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 数组容量 &lt; 64 时，优先扩容而非转红黑树</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (tab <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">||</span> (n <span style="color:#f92672">=</span> tab.<span style="color:#a6e22e">length</span>) <span style="color:#f92672">&lt;</span> MIN_TREEIFY_CAPACITY)
+</span></span><span style="display:flex;"><span>        resize();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> ((e <span style="color:#f92672">=</span> tab<span style="color:#f92672">[</span>index <span style="color:#f92672">=</span> (n <span style="color:#f92672">-</span> 1) <span style="color:#f92672">&amp;</span> hash<span style="color:#f92672">]</span>) <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// ... 转换为红黑树</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="34-扩容机制">3.4 扩容机制</h3>
 <table>
   <thead>
       <tr>
@@ -268,13 +316,21 @@
       </tr>
   </tbody>
 </table>
-<p><strong>负载因子为何是 0.75</strong>：空间利用率与哈希冲突率的平衡点。</p>
-<h3 id="34-线程安全性">3.4 线程安全性</h3>
-<p><code>HashMap</code> <strong>非线程安全</strong>。多线程环境下可能导致：</p>
+<p><strong>触发时机</strong>：每次 <code>put</code> 操作后，检查元素数量是否超过阈值：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// putVal 方法末尾</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">++</span>modCount;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 元素数量 &gt; 阈值时触发扩容</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (<span style="color:#f92672">++</span>size <span style="color:#f92672">&gt;</span> threshold)
+</span></span><span style="display:flex;"><span>    resize();
+</span></span></code></pre></div><p><strong>为何负载因子是 0.75</strong>：空间利用率与哈希冲突率的平衡点。过小浪费空间，过大冲突增多。</p>
+<h3 id="35-线程安全性">3.5 线程安全性</h3>
+<p><code>HashMap</code> <strong>非线程安全</strong>。多线程环境下可能出现：</p>
 <ul>
 <li>数据丢失或覆盖</li>
-<li>扩容时形成循环链表（Java 7），导致 CPU 100%</li>
+<li>扩容时数据不一致</li>
+<li>Java 7 中可能形成循环链表导致死循环</li>
 </ul>
+<p>多线程场景应使用 <code>ConcurrentHashMap</code>。</p>
 <h2 id="四map-实现类对比">四、Map 实现类对比</h2>
 <h3 id="41-特性对比">4.1 特性对比</h3>
 <table>
