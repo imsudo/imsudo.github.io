@@ -4,7 +4,7 @@
   <title type="text">imsudo</title>
   <subtitle type="text">科技改变生活</subtitle>
   <updated>1970-01-03T00:00:00.000Z</updated>
-  <author><name>XiaYe</name></author>
+  <author><name>imxishuo</name></author>
   <link rel="alternate" href="https://imsudo.github.io/"/>
   <link rel="self" href="https://imsudo.github.io/atom.xml"/>
   <generator uri="https://github.com/CuteLeaf/Firefly">Firefly v6.16.8</generator>
@@ -13,7 +13,7 @@
       <title type="text">Firefly 一款清新美观的 Astro 博客主题模板</title>
       <published>1970-01-02T00:00:00.000Z</published>
       <updated>1970-01-02T00:00:00.000Z</updated>
-      <author><name>XiaYe</name></author>
+      <author><name>imxishuo</name></author>
       <link rel="alternate" href="https://imsudo.github.io/posts/firefly/"/>
       <summary type="text">Firefly 是一款基于 Astro 框架和 Fuwari 模板开发的清新美观且现代化个人博客主题模板，专为技术爱好者和内容创作者设计。该主题融合了现代 Web 技术栈，提供了丰富的功能模块和高度可定制的界面，让您能够轻松打造出专业且美观的个人博客网站。</summary>
       <content type="html"><![CDATA[<section><h2>🌟 项目概述<a href="#-项目概述"><span>#</span></a></h2><p><strong>Firefly</strong> 是一款基于 Astro 框架和 Fuwari 模板开发的清新美观且现代化个人博客主题模板，专为技术爱好者和内容创作者设计。该主题融合了现代 Web 技术栈，提供了丰富的功能模块和高度可定制的界面，让您能够轻松打造出专业且美观的个人博客网站。</p><p><strong>🖥️在线预览： <a href="https://firefly.cuteleaf.cn/" target="_blank">Firefly - Demo site</a></strong></p><p><strong>📝Firefly使用文档： <a href="https://docs-firefly.cuteleaf.cn/" target="_blank">https://docs-firefly.cuteleaf.cn</a></strong></p><p><strong>⭐Firefly开源地址：<a href="https://github.com/CuteLeaf/Firefly" target="_blank">https://github.com/CuteLeaf/Firefly</a></strong></p><p><strong>⭐Fuwari开源地址：<a href="https://github.com/saicaca/fuwari" target="_blank">https://github.com/saicaca/fuwari</a></strong></p><a href="https://github.com/CuteLeaf/Firefly" target="_blank"><div><div><div><div></div><div>CuteLeaf</div></div><div>/</div><div>Firefly</div></div><div></div></div><div>🍀Firefly, fresh and aesthetic Astro blog theme template. </div><div><div>—</div><div>—</div><div>MIT</div><span>Astro</span></div></a><a href="https://github.com/saicaca/fuwari" target="_blank"><div><div><div><div></div><div>saicaca</div></div><div>/</div><div>fuwari</div></div><div></div></div><div>✨A static blog template built with Astro. </div><div><div>—</div><div>—</div><div>MIT</div><span>Astro</span></div></a><p></p><figure><img alt="Firefly" loading="lazy" width="2192" height="1233" src="/_astro/1.BQ4-k1kz_Z17x8Xz.webp" /><figcaption>Firefly</figcaption></figure><p></p></section>
@@ -30,7 +30,7 @@
       <title type="text">Firefly 简单使用指南</title>
       <published>1970-01-02T00:00:00.000Z</published>
       <updated>1970-01-02T00:00:00.000Z</updated>
-      <author><name>XiaYe</name></author>
+      <author><name>imxishuo</name></author>
       <link rel="alternate" href="https://imsudo.github.io/posts/guide/"/>
       <summary type="text">如何使用 Firefly 博客模板。</summary>
       <content type="html"><![CDATA[<p>这个博客模板是基于 <a href="https://astro.build/" target="_blank">Astro</a> 构建的。对于本指南中未提及的内容，您可以在 <a href="https://docs.astro.build/" target="_blank">Astro 文档</a> 中找到答案。</p>
@@ -55,7 +55,7 @@
       <title type="text">Firefly 代码块示例</title>
       <published>1970-01-03T00:00:00.000Z</published>
       <updated>1970-01-03T00:00:00.000Z</updated>
-      <author><name>XiaYe</name></author>
+      <author><name>imxishuo</name></author>
       <link rel="alternate" href="https://imsudo.github.io/posts/code-examples/"/>
       <summary type="text">在Firefly中使用表达性代码的代码块在 Markdown 中的外观。</summary>
       <content type="html"><![CDATA[<p>在这里，我们将探索如何使用 <a href="https://expressive-code.com/" target="_blank">Expressive Code</a> 展示代码块。提供的示例基于官方文档，您可以参考以获取更多详细信息。</p>
@@ -96,7 +96,7 @@
       <title type="text">Firefly 布局系统详解</title>
       <published>1970-01-03T00:00:00.000Z</published>
       <updated>1970-01-03T00:00:00.000Z</updated>
-      <author><name>XiaYe</name></author>
+      <author><name>imxishuo</name></author>
       <link rel="alternate" href="https://imsudo.github.io/posts/guide/firefly-layout-system/"/>
       <summary type="text">深入了解 Firefly 的布局系统，包括侧边栏布局（左侧/双侧）和文章列表布局（列表/网格），以及自适应网格列数。</summary>
       <content type="html"><![CDATA[<section><h2>📖 概述<a href="#-概述"><span>#</span></a></h2><p>Firefly 提供了灵活的布局系统，允许您根据内容需求和个人喜好自定义博客的视觉呈现方式。布局系统主要包括<strong>侧边栏布局</strong>和<strong>文章列表布局</strong>两个维度，它们相互配合，共同决定了页面的整体结构。</p><p>本文将详细介绍 Firefly 的各种布局模式、它们的特点、使用场景，以及不同布局组合的效果。</p><hr /><div><figure><img alt="左侧边栏+列表布局" loading="lazy" width="2192" height="1233" src="/_astro/left-list.CdJfuugk_23fiFf.webp" /><figcaption>左侧边栏+列表布局</figcaption></figure><figure><img alt="右侧边栏+网格布局" loading="lazy" width="2192" height="1233" src="/_astro/right-grid2.BDLeNFG9_Z1Ypd95.webp" /><figcaption>右侧边栏+网格布局</figcaption></figure><figure><img alt="左侧边栏+三列网格布局" loading="lazy" width="2192" height="1233" src="/_astro/left-grid3.DCIbm9j3_Z5Vd5j.webp" /><figcaption>左侧边栏+三列网格布局</figcaption></figure></div><div><figure><img alt="双侧边栏+列表布局" loading="lazy" width="2192" height="1233" src="/_astro/both-list.CybtDZTU_xxVkb.webp" /><figcaption>双侧边栏+列表布局</figcaption></figure><figure><img alt="双侧边栏+网格布局" loading="lazy" width="2192" height="1233" src="/_astro/both-grid.B-BFe9Al_1g1tLj.webp" /><figcaption>双侧边栏+网格布局</figcaption></figure><figure><img alt="双侧边栏+网格瀑布流布局" loading="lazy" width="2192" height="1233" src="/_astro/masonry.BgzRsBcp_2mfpqn.webp" /><figcaption>双侧边栏+网格瀑布流布局</figcaption></figure></div></section>
@@ -164,7 +164,7 @@
       <title type="text">Firefly Wiki Link 内部链接示例</title>
       <published>1970-01-03T00:00:00.000Z</published>
       <updated>1970-01-03T00:00:00.000Z</updated>
-      <author><name>XiaYe</name></author>
+      <author><name>imxishuo</name></author>
       <link rel="alternate" href="https://imsudo.github.io/posts/guide/firefly-wiki-link/"/>
       <summary type="text">在 Firefly 文章中使用 Obsidian 风格的 Wiki Link 内部链接，并自动生成文章链接卡片。</summary>
       <content type="html"><![CDATA[<p>Firefly 支持在 Markdown、MDX 文章中使用 Obsidian 风格的 Wiki Link 内部链接。链接目标填写文章的 slug 或文件路径，都不需要包含扩展名，具体匹配规则见下文「链接目标的三种写法」。</p>
@@ -188,7 +188,7 @@
       <title type="text">Firefly 文章加密</title>
       <published>1970-01-02T00:00:00.000Z</published>
       <updated>1970-01-02T00:00:00.000Z</updated>
-      <author><name>XiaYe</name></author>
+      <author><name>imxishuo</name></author>
       <link rel="alternate" href="https://imsudo.github.io/posts/encrypted-demo/"/>
       <summary type="text">这是一篇密码保护的示例文章，用于演示文章加密功能。</summary>
       <content type="html"><![CDATA[本文已加密保护，请访问网站查看。]]></content>
@@ -198,7 +198,7 @@
       <title type="text">KaTeX 数学公式示例</title>
       <published>1970-01-02T00:00:00.000Z</published>
       <updated>1970-01-02T00:00:00.000Z</updated>
-      <author><name>XiaYe</name></author>
+      <author><name>imxishuo</name></author>
       <link rel="alternate" href="https://imsudo.github.io/posts/katex-math-example/"/>
       <summary type="text">展示 Firefly 主题对 KaTeX 数学公式的支持，包括行内公式、块级公式和复杂数学符号。</summary>
       <content type="html"><![CDATA[<p>本文展示了 <a href="https://github.com/CuteLeaf/Firefly" target="_blank">Firefly</a> 主题对 KaTeX 数学公式的渲染支持。</p>
@@ -230,7 +230,7 @@ c\alpha + d\gamma &amp; c\beta + d\delta
       <title type="text">MDX 格式文章示例</title>
       <published>1970-01-02T00:00:00.000Z</published>
       <updated>1970-01-02T00:00:00.000Z</updated>
-      <author><name>XiaYe</name></author>
+      <author><name>imxishuo</name></author>
       <link rel="alternate" href="https://imsudo.github.io/posts/mdx-example/"/>
       <summary type="text">这是一个 MDX 格式的示例文章，展示了如何在 Markdown 中使用 JSX。</summary>
       <content type="html"><![CDATA[<div><div><div></div><div>Tip</div></div><div><p><a href="https://github.com/CuteLeaf/Firefly" target="_blank">Firefly</a> 支持 <code>MDX</code> 和 <code>Markdown</code> 两种类型的文章，你可以在文章中混合使用两种格式，如果没有特别复杂内容和需求，推荐使用 Markdown 格式就够了。</p></div></div>
@@ -259,7 +259,7 @@ c\alpha + d\gamma &amp; c\beta + d\delta
       <title type="text">Markdown 扩展功能</title>
       <published>1970-01-01T00:00:00.000Z</published>
       <updated>1970-01-01T00:00:00.000Z</updated>
-      <author><name>XiaYe</name></author>
+      <author><name>imxishuo</name></author>
       <link rel="alternate" href="https://imsudo.github.io/posts/markdown-extended/"/>
       <summary type="text">了解 Firefly 中的 Markdown 功能</summary>
       <content type="html"><![CDATA[<section><h2>GitHub 仓库卡片<a href="#github-仓库卡片"><span>#</span></a></h2><p>您可以添加链接到 GitHub 仓库的动态卡片，在页面加载时，仓库信息会从 GitHub API 获取。</p><a href="https://github.com/CuteLeaf/Firefly" target="_blank"><div><div><div><div></div><div>CuteLeaf</div></div><div>/</div><div>Firefly</div></div><div></div></div><div>🍀Firefly, fresh and aesthetic Astro blog theme template. </div><div><div>—</div><div>—</div><div>MIT</div><span>Astro</span></div></a><p>使用代码 <code>::github{repo="CuteLeaf/Firefly"}</code> 创建 GitHub 仓库卡片。</p><div><figure><figcaption></figcaption><pre><code><div><div><div>1</div></div><div><span>::github{repo="CuteLeaf/Firefly"}</span></div></div></code></pre><div><div></div><div></div></div></figure></div></section>
@@ -317,7 +317,7 @@ c\alpha + d\gamma &amp; c\beta + d\delta
       <title type="text">Markdown Mermaid 图表</title>
       <published>1970-01-01T00:00:00.000Z</published>
       <updated>1970-01-01T00:00:00.000Z</updated>
-      <author><name>XiaYe</name></author>
+      <author><name>imxishuo</name></author>
       <link rel="alternate" href="https://imsudo.github.io/posts/markdown-mermaid/"/>
       <summary type="text">一个包含 Mermaid 的 Markdown 博客文章简单示例。</summary>
       <content type="html"><![CDATA[<section><h2>Markdown 中 Mermaid 图表完整指南<a href="#markdown-中-mermaid-图表完整指南"><span>#</span></a></h2><p>本文演示如何在 Markdown 文档中使用 Mermaid 创建各种复杂图表，包括流程图、时序图、ER 图、类图、状态图、XY 图、甘特图、思维导图等。</p><blockquote><p>Mermaid 图表由 <a href="https://github.com/Latias94/merman" target="_blank">Merman</a> 实现。Firefly 在 Astro 构建阶段生成亮色和深色两套静态 SVG，无需在浏览器中加载 Mermaid 渲染运行时。可以前往 <a href="http://frankorz.com/merman/" target="_blank">Merman Playground</a> 实时编辑语法并预览渲染结果。</p></blockquote></section>
@@ -386,7 +386,7 @@ c\alpha + d\gamma &amp; c\beta + d\delta
       <title type="text">Markdown PlantUML 图表</title>
       <published>1970-01-01T00:00:00.000Z</published>
       <updated>1970-01-01T00:00:00.000Z</updated>
-      <author><name>XiaYe</name></author>
+      <author><name>imxishuo</name></author>
       <link rel="alternate" href="https://imsudo.github.io/posts/markdown-plantuml/"/>
       <summary type="text">用于验证 Firefly 中 PlantUML 插件渲染、主题切换与交互能力的示例文章。</summary>
       <content type="html"><![CDATA[<section><h2>Markdown 中 PlantUML 图表指南<a href="#markdown-中-plantuml-图表指南"><span>#</span></a></h2><p>PlantUML 是一种使用纯文本描述图表的工具。你只需要写一段结构化语法，就可以生成时序图、类图、用例图、活动图等常见工程图。</p><p>它特别适合写在技术博客和项目文档里：</p><ul>
@@ -638,7 +638,7 @@ inside a list item.</p></blockquote>
       <title type="text">在文章中嵌入视频</title>
       <published>1970-01-01T00:00:00.000Z</published>
       <updated>1970-01-01T00:00:00.000Z</updated>
-      <author><name>XiaYe</name></author>
+      <author><name>imxishuo</name></author>
       <link rel="alternate" href="https://imsudo.github.io/posts/video/"/>
       <summary type="text">这篇文章演示如何在博客文章中嵌入视频。</summary>
       <content type="html"><![CDATA[<p>只需从 YouTube 或其他平台复制嵌入代码，然后将其粘贴到 markdown 文件中。</p>
